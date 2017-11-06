@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+
+    "name": "YouTube URL Scraper",
+    "description": "Finds and returns a list of all YouTube url's from a given link",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "png/icon.png",
+        "default_popup": "html/popup.html"
+    },
+    "permissions": ["activeTab"]
+}
