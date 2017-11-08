@@ -2,15 +2,18 @@ function htmlParse(result) {
     console.log(result);
     console.log(typeof result);
     console.log(result.getElementsByTagName("a"));
-    alert("Hello world. Kevin was right");
+    var urls = Array.from(result.getElementsByTagName("a"));
+    var actUrls = urls.filter(url => url.href != "");
+    alert(actUrls)
+    alert("Filtered: "+actUrls.length);
 }
 
 function getURLs(url, callback) {
     var xhttp;
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if ((xhttp.readyState == 4) && (xhttp.status == 200)) {
-            callback(xhttp.response);
+        if ((this.readyState == 4) && (this.status == 200)) {
+            callback(this.response);
         }
     };
     xhttp.open("GET", url, true);
