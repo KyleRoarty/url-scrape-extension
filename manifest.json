@@ -5,9 +5,13 @@
     "description": "Finds and returns a list of all YouTube url's from a given link",
     "version": "1.0",
 
+    "background": {
+        "scripts": ["js/main.js"]
+    },
+
     "browser_action": {
         "default_icon": "png/icon.png",
         "default_popup": "html/popup.html"
     },
-    "permissions": ["http://*/", "https://*/", "activeTab", "storage"]
+    "permissions": ["http://*/", "https://*/", "activeTab", "storage", "contextMenus"]
 }
