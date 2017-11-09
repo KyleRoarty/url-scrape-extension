@@ -1,11 +1,19 @@
+function getTitle(ytHtml) {
+    var title = ytHtml.getElementsByTagName("h1");
+    console.log(ytHtml);
+}
 function htmlParse(result) {
     console.log(result);
-    console.log(typeof result);
     console.log(result.getElementsByTagName("a"));
     var urls = Array.from(result.getElementsByTagName("a"));
-    var actUrls = urls.filter(url => url.href != "");
-    alert(actUrls)
-    alert("Filtered: "+actUrls.length);
+    var actUrls = urls.filter(url => url.href.match(/^https?:\/\/www\.youtube\.com.*/) ||
+                                     url.href.match(/^https?:\/\/youtu\.be.*/));
+    actUrls = actUrls.map(url => url.href);
+    console.log(actUrls);
+
+    var unique = actUrls.filter((url, index) => actUrls.indexOf(url) === index);
+    var titles = unique.map(url => getURLs(url, getTitle));
+
 }
 
 function getURLs(url, callback) {

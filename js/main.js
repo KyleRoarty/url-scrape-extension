@@ -1,6 +1,6 @@
 function blah(passed) {
     console.log(passed);
-    alert("You clicked me!");
+    alert("You clicked me! "+passed.linkUrl);
 }
 
 chrome.contextMenus.create({
